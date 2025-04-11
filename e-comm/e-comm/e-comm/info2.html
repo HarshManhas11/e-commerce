@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Home</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/info.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <h1><a href="#">Book Shop</a></h1>
+      </div>
+    </header>
+    <nav id="mainnav" class="group">
+      <div id="menu">&#x2261; Menu</div>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./products.html">Products</a></li>
+      </ul>
+    </nav>
+
+
+    <div class="bodyWrap">    
+      <div class="productStage">
+          <div class="folderTab clearFix">
+      </div></div>
+    <div class="botBorder clearFix">
+        <div class="productImage">
+          <img src="https://m.media-amazon.com/images/I/91h14raE85S._AC_UY327_FMwebp_QL65_.jpg">
+        </div>
+        
+        <div class="overview">
+          <h1>Treasure Island</h1>
+          <h2>2401</h2>
+          <h3>&#8377;200.00</h4>
+          <span>50+ available</span>
+          <span class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquam elementum est, at vestibulum augue consequat at. Donec euismod convallis felis. Nam sed molestie dolor. Proin in tortor sed augue consequat viverra.</span>
+  
+            <div class="do">
+
+              <div class="button add" id="add">Add to Cart</div>
+            </div>
+
+                     
+        </div>
+       <div class="info">
+            <h3>Product Information</h3>
+            <ul class="specs">
+              <li><h5>Weight:</h5> 150g</li>
+              <li><h5>Pages:</h5> 500</li>
+              <li><h5>Author:</h5> ABC</li>
+            </ul>
+          
+          <div class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, nisi voluptatum iusto fugiat dolorem voluptatibus neque ab unde aliquam, quasi reprehenderit inventore at consequuntur excepturi explicabo fuga aspernatur perferendis debitis.
+          </div> 
+         </div> 
+       <div class="info">
+          <h3>Product Reviews</h3>  
+           <div class="review">
+                 
+                <span class="comments">This is my go-to, workhorse yarn. It comes in a zillion colors, is fairly soft to touch better with a soak, and holds up well over time. Definitely a tried and true standard.</span>
+              <span class="author">By kaitmurphy  on April 11, 2014</span>
+               <div class="vote">
+                 Was this review helpful?
+                 <input type="submit" value="Yes">
+                </div>
+           </div>
+         
+            
+              <div class="review">
+  
+                  <span class="comments">I made a mistake in ordering this because I was meaning to order the superwash, which is much softer. But, that being said, this is nice yarn and is easy to work with.Colors were true to the website photos.</span>
+                <span class="author">By Lucky67 on August 27, 2013</span>
+                  <div class="vote">
+                   Was this review helpful?
+                   <input type="submit" value="Yes">
+                  </div>
+             </div>
+                      
+                      <div class="button bd submit right">Read More Reviews</div>
+                      <div class="button submit blueSubmit left">Write a Review</div> 
+             </div>                     
+            
+          </div>  
+       </div>
+      </div> 
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Splide(".splide").mount();
+      });
+
+
+
+      document.getElementById("add").addEventListener("click", () => {
+        let cart = JSON.parse(localStorage.getItem("cart"))
+          let data;
+          const already = cart.find((el) => el.id === 2)
+          if(!already) {
+            data = {
+            id: 2,
+            name: "Morphisis",
+            qty: 1,
+            price: 200
+            }
+
+            cart.push(data)
+          }else {
+
+
+            const final = cart.map((el) => {
+              if(el.id === 2) {
+                el.qty = parseInt(el.qty) + 1
+
+                return el
+              }
+
+              return el
+            })
+
+
+            cart = final
+
+          }
+
+
+
+
+
+
+          localStorage.setItem("cart", JSON.stringify(cart))
+
+          window.location = "./cart.html"
+
+        })
+    </script>
+
+  </body>
+</html>

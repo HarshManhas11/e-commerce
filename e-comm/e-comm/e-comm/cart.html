@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Home</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <h1><a href="#">Book Shop</a></h1>
+      </div>
+    </header>
+    <nav id="mainnav" class="group">
+      <div id="menu">&#x2261; Menu</div>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./products.html">Products</a></li>
+      </ul>
+    </nav>
+
+    <div class="shopping-cart" id="shopping-cart">
+      <button class="checkout" id="checkout">Checkout</button>
+
+      <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      const holder = document.getElementById("shopping-cart");
+      cart.map((el) => {
+        switch (el.id) {
+          case 1:
+            return (holder.innerHTML += `<div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/819gepUWtdS._AC_UY327_FMwebp_QL65_.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">${el.name}</div>
+        </div>
+        <div class="product-price"> ${el.price}</div>
+        <div class="product-quantity">
+          <div class="quantity-counter">
+  <button id="counter-increment1" class="increment">+</button>
+  <input id="add1" class="value" type="number" value="${el.qty}">
+  <button id="counter-decrement1" class="decrement">-</button>
+</div>
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" id="r1">Remove</button>
+        </div>
+        <div class="product-line-price">${
+          parseInt(el.price) * parseInt(el.qty)
+        }</div>
+      </div>`);
+            break;
+          case 2:
+            return (holder.innerHTML += `<div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/91h14raE85S._AC_UY327_FMwebp_QL65_.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">${el.name}</div>
+        </div>
+        <div class="product-price"> ${el.price}</div>
+        <div class="product-quantity">
+          <div class="quantity-counter">
+  <button id="counter-increment2" class="increment">+</button>
+  <input id="add2" class="value" type="number" value="${el.qty}">
+  <button id="counter-decrement2" class="decrement">-</button>
+</div>
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" id="r2">Remove</button>
+        </div>
+        <div class="product-line-price">${
+          parseInt(el.price) * parseInt(el.qty)
+        }</div>
+      </div>`);
+            break;
+
+          case 3:
+            return (holder.innerHTML += `<div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/81cd2YOY6iS._AC_UY327_FMwebp_QL65_.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">${el.name}</div>
+        </div>
+        <div class="product-price">${el.price}</div>
+        <div class="product-quantity">
+          <div class="quantity-counter">
+  <button id="counter-increment3" class="increment">+</button>
+  <input id="add3" class="value" type="number" value="${el.qty}">
+  <button id="counter-decrement3" class="decrement">-</button>
+</div>
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" id="r3">Remove</button>
+        </div>
+        <div class="product-line-price">${
+          parseInt(el.price) * parseInt(el.qty)
+        }</div>
+      </div>`);
+            break;
+            case 4:
+            return (holder.innerHTML += `<div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/81lr6LSKvKS._AC_UY327_FMwebp_QL65_.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">${el.name}</div>
+        </div>
+        <div class="product-price"> ${el.price}</div>
+        <div class="product-quantity">
+          <div class="quantity-counter">
+  <button id="counter-increment4" class="increment">+</button>
+  <input id="add4" class="value" type="number" value="${el.qty}">
+  <button id="counter-decrement4" class="decrement">-</button>
+</div>
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" id="r4">Remove</button>
+        </div>
+        <div class="product-line-price">${
+          parseInt(el.price) * parseInt(el.qty)
+        }</div>
+      </div>`);
+            break;
+            case 5:
+            return (holder.innerHTML += `<div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/71frknp-CWL._AC_UY327_FMwebp_QL65_.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">${el.name}</div>
+        </div>
+        <div class="product-price">₹ ${el.price}</div>
+        <div class="product-quantity">
+          <div class="quantity-counter">
+  <button id="counter-increment5" class="increment">+</button>
+  <input id="add5" class="value" type="number" value="${el.qty}">
+  <button id="counter-decrement5" class="decrement">-</button>
+</div>
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" id="r5">Remove</button>
+        </div>
+        <div class="product-line-price">${
+          parseInt(el.price) * parseInt(el.qty)
+        }</div>
+      </div>`);
+            break;
+            case 6:
+            return (holder.innerHTML += `<div class="product">
+        <div class="product-image">
+          <img src="https://m.media-amazon.com/images/I/81tEgsxpNZS._AC_UY327_FMwebp_QL65_.jpg" />
+        </div>
+        <div class="product-details">
+          <div class="product-title">${el.name}</div>
+        </div>
+        <div class="product-price"> ${el.price}</div>
+        <div class="product-quantity">
+          <div class="quantity-counter">
+  <button id="counter-increment6" class="increment">+</button>
+  <input id="add6" class="value" type="number" value="${el.qty}">
+  <button id="counter-decrement6" class="decrement">-</button>
+</div>
+        </div>
+        <div class="product-removal">
+          <button class="remove-product" id="r6">Remove</button>
+        </div>
+        <div class="product-line-price">${
+          parseInt(el.price) * parseInt(el.qty)
+        }</div>
+      </div>`);
+            break;
+          default:
+            break;
+        }
+      });
+
+      for (let index = 1; index < 7; index++) {
+        const doc = document.getElementById(`r${index}`);
+        if (doc) {
+          doc.addEventListener("click", function (e) {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+
+            const final = cart.filter((el) => el.id !== index);
+
+            cart = [];
+
+            cart = final;
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            window.location.reload();
+          });
+        }
+      }
+
+      document.getElementById("checkout").addEventListener("click", () => {
+        localStorage.setItem("cart", JSON.stringify([]))
+        window.location.href = "./order.html";
+      });
+
+      for (let index = 1; index < 7; index++) {
+        var counterValue = document.querySelector("#add" + index);
+        var counterIncrement = document.querySelector(
+          "#counter-increment" + index
+        );
+        var counterDecrement = document.querySelector(
+          "#counter-decrement" + index
+        );
+
+        if (counterValue) {
+          counterIncrement.addEventListener("click", () => {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            const qty = cart.find((el) => el.id === index);
+
+            const final = cart.map((el) => {
+              if (el.id === index) {
+                el.qty = ++qty.qty;
+                return el;
+              }
+
+              return el;
+            });
+
+            cart = [];
+
+            cart = final;
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            window.location.reload();
+          });
+
+          counterDecrement.addEventListener("click", () => {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            const qty = cart.find((el) => el.id === index);
+
+
+
+            const final = cart.map((el) => {
+              if (el.id === index) {
+                el.qty = --qty.qty;
+                return el;
+              }
+
+              return el;
+            });
+
+
+            cart = [];
+
+            cart = final;
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            window.location.reload();
+          });
+        }
+      }
+
+      const total = cart
+        .map((el) => {
+          return parseInt(el.price) * parseInt(el.qty);
+        })
+        .reduce((a, b) => a + b, 0);
+
+      document.getElementById("checkout").innerText = `Checkout (₹ ${total})`
+    </script>
+
+    <footer>
+  &copy; ABC Books Limited
+
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Home</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <h1><a href="#">Book Shop</a></h1>
+      </div>
+    </header>
+    <nav id="mainnav" class="group">
+      <div id="menu">&#x2261; Menu</div>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./products.html">Products</a></li>
+        <li><a href="./cart.html" id="cart">Cart</a></li>
+      </ul>
+    </nav>
+
+    <div class="slider">
+      <div class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <img src="https://images-eu.ssl-images-amazon.com/images/G/31/VG-2019Dec/Amazon_GRD_DesktopHero_Template_1x_leadup-2._CB645626637_.jpg" alt="" />
+            </li>
+            <li class="splide__slide"><img src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/Events/AugART21/GW/NEW/HERO/PCshopnow/AugART21_PC_hero_1x_Shopnow._CB645150438_.jpg" alt="" /></li>
+            <li class="splide__slide"><img src="https://images-eu.ssl-images-amazon.com/images/G/31/VG-2019Dec/Amazon_GRD_DesktopHero_Template_1x_leadup-2._CB645626637_.jpg" alt="" /></li>
+            <li class="splide__slide"><img src="https://images-eu.ssl-images-amazon.com/images/G/31/img20/Events/AugART21/GW/NEW/HERO/PCshopnow/AugART21_PC_hero_1x_Shopnow._CB645150438_.jpg" alt="" /></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <h1 style="padding: 10px; text-align: center;">Categories</h1>
+    <hr>
+    <div class="categories">
+      <a href="./cat1.html"class="cat">Romantic</a>
+      <a href="./cat2.html" class="cat">Action</a>
+      <a href="./cat3.html" class="cat">Thriller</a>
+    </div>
+
+
+    <div class="abc">
+      <ul class="sidebar">
+        <li>Popular Books</li>
+      </ul>
+
+      <div class="books">
+
+        <div id="wrap">
+          <div id="columns" class="columns_4">
+          <figure>
+          <img src="https://m.media-amazon.com/images/I/819gepUWtdS._AC_UY327_FMwebp_QL65_.jpg">
+          <figcaption>Treasure Island</figcaption>
+            <span class="price">&#8377;100</span>
+            <a class="button" href="./info.html">Book Now</a>
+          </figure>
+          
+          <figure>
+          <img src="https://m.media-amazon.com/images/I/91h14raE85S._AC_UY327_FMwebp_QL65_.jpg">
+          <figcaption>Metamophisis</figcaption>
+            <span class="price">&#8377;200</span>
+            <a class="button" href="./info2.html">Book Now</a>
+          </figure>
+          
+          <figure>
+          <img src="https://m.media-amazon.com/images/I/81cd2YOY6iS._AC_UY327_FMwebp_QL65_.jpg">
+          <figcaption>Nationalism</figcaption>
+            <span class="price">&#8377;500</span>
+            <a class="button" href="./info3.html">Book Now</a>
+          </figure>
+        
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+<hr>
+
+
+    <div class="abc">
+      <ul class="sidebar">
+        <li>New Arrivals</li>
+      </ul>
+
+      <div class="books">
+
+        <div id="wrap">
+          <div id="columns" class="columns_4">
+          <figure>
+          <img src="https://m.media-amazon.com/images/I/81lr6LSKvKS._AC_UY327_FMwebp_QL65_.jpg">
+          <figcaption>Think and grow rich</figcaption>
+            <span class="price">&#8377;500</span>
+            <a class="button" href="./info4.html">Book Now</a>
+          </figure>
+          
+          <figure>
+          <img src="https://m.media-amazon.com/images/I/71frknp-CWL._AC_UY327_FMwebp_QL65_.jpg">
+          <figcaption>Personal growth and wealth</figcaption>
+            <span class="price">&#8377;700</span>
+            <a class="button" href="./info5.html">Book Now</a>
+          </figure>
+          
+          <figure>
+          <img src="https://m.media-amazon.com/images/I/81tEgsxpNZS._AC_UY327_FMwebp_QL65_.jpg">
+          <figcaption>James Allen</figcaption>
+            <span class="price">&#8377;800</span>
+            <a class="button" href="./info6.html">Book Now</a>
+          </figure>
+        
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Splide(".splide").mount();
+      });
+
+
+      const check = localStorage.getItem("cart")
+
+      console.log(check)
+
+      if(!check) {
+        localStorage.setItem("cart", JSON.stringify([]))
+      }
+
+
+      if(check) {
+        document.getElementById("cart").innerText = `Cart(${JSON.parse(check).length})`
+      }
+
+    </script>
+<footer>
+  &copy; ABC Books Limited
+</footer>
+
+  </body>
+</html>
